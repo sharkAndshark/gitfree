@@ -5,5 +5,5 @@ CLI for Speeding up  git(hub/lab) connection.The reason made GitFree is the ubiq
 2. Write IP addresss to DNS file.
 # GET STARTED
 ```
-./gitfree set
+./gitfree
 ```
