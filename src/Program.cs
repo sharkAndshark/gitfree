@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using CommandLine;
 
 namespace gitfree
@@ -7,27 +8,27 @@ namespace gitfree
     {
         static void Main(string[] args)
         {
-
-            Parser.Default.ParseArguments<SetOptions,ReSetOptions>(args) 
-            .WithParsed<SetOptions>(setOpt => {
-                var os = System.Environment.OSVersion.Platform;
-                var path = Free.GetDNSPath(os);
-                System.Console.WriteLine($"DNS配置({path})将被重写，还原请使用 gitfree --reset命令");
-                Free.Set();
-            })
-            .WithParsed<ReSetOptions>(resetOpt => {
-                System.Console.WriteLine("该功能将在后续添加...");
-            });
+            var path = BackUpHosts();
+            System.Console.WriteLine($"DNS配置({path})将被重写，原文件已备份在{path}");
+            ReWriteHosts();
         }
-    }
-    [Verb("set", HelpText = "配置github与gitlab的DNS")]
-    public class SetOptions
-    {
 
-    }
-    [Verb("reset", HelpText = "还原DNS配置")]
-    public class ReSetOptions
-    {
-        
+        private static void ReWriteHosts()
+        {
+             var os = System.Environment.OSVersion.Platform;
+            var path = Free.GetDNSPath(os);
+                Free.Set();
+        }
+
+        private static string BackUpHosts()
+        {
+            var os = System.Environment.OSVersion.Platform;
+            var hostPath = Free.GetDNSPath(os);
+            var currentDir = Directory.GetCurrentDirectory();
+            ;
+            var path = Path.Combine(currentDir, $"Hostbackup_{DateTime.Now.ToString("mm_dd_hh_ss")}.text");
+            File.Copy(hostPath,path);
+            return path;
+        }
     }
 }
