@@ -5,6 +5,16 @@ Tool for Speeding up  git(hub/lab) connection.The reason made GitFree is ubiquit
 2. Write IP addresss to DNS file.
 # GET STARTED
 if you are windows user,just right click it and run as admin.
-if you are linux/macos user:
-1. download [gitfree](https://sourceforge.net/projects/gitfree/files/latest/download)
-2. cd the download folder`sudo ./gitfree`
+
+**linux**
+```bash
+curl -o gitfree -L https://github.com/sharkAndshark/gitfree/releases/download/1.0/gitfree_linux
+chomd 777 gitfree
+sudo ./gitfree
+```
+**macos**
+```bash
+curl -o gitfree -L https://github.com/sharkAndshark/gitfree/releases/download/1.0/gitfree_macos
+chomd 777 gitfree
+sudo ./gitfree
+```
