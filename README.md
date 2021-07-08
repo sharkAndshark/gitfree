@@ -9,12 +9,12 @@ if you are windows user,just right click it and run as admin.
 **linux**
 ```bash
 curl -o gitfree -L https://github.com/sharkAndshark/gitfree/releases/download/1.0/gitfree_linux
-chomd 777 gitfree
+chmod 777 gitfree
 sudo ./gitfree
 ```
 **macos**
 ```bash
 curl -o gitfree -L https://github.com/sharkAndshark/gitfree/releases/download/1.0/gitfree_macos
-chomd 777 gitfree
+chmod 777 gitfree
 sudo ./gitfree
 ```
